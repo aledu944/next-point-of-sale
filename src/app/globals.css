@@ -9,7 +9,11 @@
     }
 
     .sidemenu {
-        @apply h-screen bg-white px-8 max-w-[340px] w-full border-r border-gray-300
+        @apply absolute z-10 -left-[100%] md:relative md:left-0 h-screen bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
+    }
+
+    .sidemenu-show {
+        @apply left-0 transition-all
     }
 
     .sidemenu__item {
@@ -19,6 +23,15 @@
     .sidemenu__item--active {
         @apply justify-start text-base gap-4 font-bold text-primary transition-all hover:text-primary
     }
+
+    .navbar {
+        @apply bg-white w-full py-4 border-b border-gray-300
+    }
+
+    .navbar__container {
+        @apply container flex items-center
+    }
+
 }
 
 @layer components {
