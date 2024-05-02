@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+    .admin__layout {
+        @apply flex h-screen
+    }
+
+    .sidemenu {
+        @apply h-screen bg-white px-8 max-w-[340px] w-full border-r border-gray-300
+    }
+
+    .sidemenu__item {
+        @apply justify-start text-base gap-4 text-gray-600 font-bold transition-all hover:text-primary
+    }
+
+    .sidemenu__item--active {
+        @apply justify-start text-base gap-4 font-bold text-primary transition-all hover:text-primary
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[90%] mx-auto
+    }
+}

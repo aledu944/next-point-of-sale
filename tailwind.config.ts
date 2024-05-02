@@ -13,10 +13,11 @@ const config: Config = {
   },
   plugins: [
     nextui({
+      defaultTheme: 'light',
       themes: {
         light: {
-
           colors: {
+            background: '#f8f8f8',
             focus: '#FFA16C',
             primary: {
               DEFAULT: '#FFA16C',
