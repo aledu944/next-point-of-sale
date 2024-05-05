@@ -5,16 +5,16 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
 }
 
 model Category {
-  id    String @id @default("uuid()")
+  id    Int @id @default(autoincrement())
   name  String
   slug  String @unique
   image String
@@ -26,7 +26,7 @@ model Category {
 }
 
 model Product {
-  id          String  @id @default("uuid()")
+  id    Int @id @default(autoincrement())
   name        String
   slug        String  @unique
   image       String
@@ -35,7 +35,7 @@ model Product {
   stock       Int     @default(0)
 
   category   Category @relation(fields: [categoryId], references: [id])
-  categoryId String
+  categoryId Int
 
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
@@ -43,10 +43,10 @@ model Product {
 }
 
 model Order {
-  id String @id @default("uuid()")
+  id    Int @id @default(autoincrement())
 
   client   Client @relation(fields: [clientId], references: [id])
-  clientId String
+  clientId Int
 
   total Decimal
 
@@ -57,10 +57,10 @@ model Order {
 
 model OrderDetails {
   product   Product @relation(fields: [productId], references: [id])
-  productId String
+  productId Int
 
   order   Order  @relation(fields: [orderId], references: [id])
-  orderId String
+  orderId Int
 
   assignedAt DateTime @default(now())
   assignedBy String
@@ -69,10 +69,10 @@ model OrderDetails {
 }
 
 model Client {
-  id       String @id @default("uuid()")
-  name     String
-  lastname String
-  ci       String @unique
+  id        Int @id @default(autoincrement())
+  name      String
+  lastname  String
+  ci        String @unique
 
   orders Order[]
 

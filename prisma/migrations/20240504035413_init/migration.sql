@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Category" (
-    "id" TEXT NOT NULL DEFAULT 'uuid()',
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "image" TEXT NOT NULL,
@@ -12,14 +12,14 @@ CREATE TABLE "Category" (
 
 -- CreateTable
 CREATE TABLE "Product" (
-    "id" TEXT NOT NULL DEFAULT 'uuid()',
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "price" DECIMAL(65,30) NOT NULL,
     "stock" INTEGER NOT NULL DEFAULT 0,
-    "categoryId" TEXT NOT NULL,
+    "categoryId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -28,8 +28,8 @@ CREATE TABLE "Product" (
 
 -- CreateTable
 CREATE TABLE "Order" (
-    "id" TEXT NOT NULL DEFAULT 'uuid()',
-    "clientId" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "clientId" INTEGER NOT NULL,
     "total" DECIMAL(65,30) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -39,8 +39,8 @@ CREATE TABLE "Order" (
 
 -- CreateTable
 CREATE TABLE "OrderDetails" (
-    "productId" TEXT NOT NULL,
-    "orderId" TEXT NOT NULL,
+    "productId" INTEGER NOT NULL,
+    "orderId" INTEGER NOT NULL,
     "assignedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "assignedBy" TEXT NOT NULL,
 
@@ -49,7 +49,7 @@ CREATE TABLE "OrderDetails" (
 
 -- CreateTable
 CREATE TABLE "Client" (
-    "id" TEXT NOT NULL DEFAULT 'uuid()',
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "lastname" TEXT NOT NULL,
     "ci" TEXT NOT NULL,

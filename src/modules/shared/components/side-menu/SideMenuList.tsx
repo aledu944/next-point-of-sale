@@ -22,7 +22,7 @@ export const SideMenuList = () => {
                 variant='light'
                 color='primary'
                 startContent={<HomeIcon/>}
-                onClick={() => handleNavigate('/home')}
+                onClick={() => handleNavigate('/admin/home')}
                 className={pathnamme.includes('/home') ? 'sidemenu__item--active' : 'sidemenu__item'}
             >
                 Inicio
@@ -34,7 +34,7 @@ export const SideMenuList = () => {
                 variant='light'
                 color='primary'
                 startContent={<MenuSquareIcon/>}
-                onClick={() => handleNavigate('/menu')}
+                onClick={() => handleNavigate('/admin/menu')}
                 className={pathnamme.includes('/menu') ? 'sidemenu__item--active' : 'sidemenu__item'}
             >
                 Menu
@@ -46,7 +46,7 @@ export const SideMenuList = () => {
                 variant='light'
                 color='primary'
                 startContent={<LayersIcon/>}
-                onClick={() => handleNavigate('/categories')}
+                onClick={() => handleNavigate('/admin/categories')}
                 className={pathnamme.includes('/categories') ? 'sidemenu__item--active' : 'sidemenu__item'}
             >
                 Categorias
@@ -58,7 +58,7 @@ export const SideMenuList = () => {
                 variant='light'
                 color='primary'
                 startContent={<InvoiceIcon/>}
-                onClick={() => handleNavigate('/orders')}
+                onClick={() => handleNavigate('/admin/orders')}
                 className={pathnamme.includes('/orders') ? 'sidemenu__item--active' : 'sidemenu__item'}
             >
                 Ordenes
@@ -70,7 +70,7 @@ export const SideMenuList = () => {
                 variant='light'
                 color='primary'
                 startContent={<UsersIcon/>}
-                onClick={() => handleNavigate('/users')}
+                onClick={() => handleNavigate('/admin/users')}
                 className={pathnamme.includes('/users') ? 'sidemenu__item--active' : 'sidemenu__item'}
             >
                 Usuarios

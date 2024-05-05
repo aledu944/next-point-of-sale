@@ -1,3 +1,8 @@
+// COMPONENTS
+export { SideMenu } from "./components/side-menu/SideMenu";
+export { Navbar } from "./components/navbar/Navbar";
+export { HeaderPage } from "./components/HeaderPage";
+
 // ICONS
 export { MenuIcon } from "./components/icons/MenuIcon";
 export { HomeIcon } from "./components/icons/HomeIcon";
@@ -11,8 +16,5 @@ export { CancelIcon } from "./components/icons/CancelIcon";
 // STORES
 export { useUiStore } from "./stores/ui.store";
 
-// COMPONENTS
-export { SideMenu } from "./components/side-menu/SideMenu";
-export { Navbar } from "./components/navbar/Navbar";
 
 export { Providers } from "./providers/Providers";

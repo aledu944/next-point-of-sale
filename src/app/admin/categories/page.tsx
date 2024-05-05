@@ -1,8 +1,14 @@
+import { HeaderPage } from '@/modules/shared';
 
 export default function CategoriesPage() {
     return (
-        <div>
-            <h1>Hello Page</h1>
-        </div>
+        <>
+            <HeaderPage
+                btnTitle='Agregar categoria'
+                description='Gestiona y maneja tus categorias'
+                title='Categorias'
+                path='/admin/categories/new'
+            />
+        </>
     );
 }
