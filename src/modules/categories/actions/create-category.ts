@@ -1,8 +1,8 @@
 "use server"
 import { v2 as cloudinary } from 'cloudinary';
 
-import { prisma } from '@/lib';
 import { createSlug } from '@/helpers';
+import { prisma } from '@/lib';
 
 cloudinary.config( process.env.CLOUDINARY_URL ?? '' );
 
@@ -21,9 +21,14 @@ export const createCategory = async (formData: FormData) => {
             image: imageUrl!,
             slug
         }; 
-    
+        console.log(category)
         await prisma.category.create({
-            data: category
+            data: {
+                image: category.image,
+                name: category.name,
+                slug: category.slug,
+            }
+
         });
 
         return {

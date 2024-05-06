@@ -1,6 +1,7 @@
 services:
   posPostgresDb:
     image: postgres:15.3
+    restart: always
 
     container_name: pos-database-postgres
 
@@ -8,9 +9,9 @@ services:
       - 5432:5432
     
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: pos
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
 
     volumes:
       - ./postgres:/var/lib/postgresql/data
