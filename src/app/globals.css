@@ -38,4 +38,8 @@
     .container {
         @apply max-w-[90%] mx-auto
     }
+
+    .header {
+        @apply container pt-8 flex flex-col md:flex-row justify-between md:items-center
+    }
 }
