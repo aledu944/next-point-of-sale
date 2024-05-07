@@ -1,8 +1,10 @@
 "use client"
 import Image from 'next/image'
+
 import { ICategory } from '../../interface/category'
+
+import { DeleteCategoryModal, EditCategoryModal } from '@/modules/categories'
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
-import { EditCategoryModal } from './EditCategoryModal'
 
 interface Props {
     categories: ICategory[]
@@ -41,6 +43,7 @@ export const CategoryTable = ({ categories }: Props) => {
                                 <TableCell>
                                     {/* ACTIONS */}
                                     <EditCategoryModal category={ category }/>
+                                    <DeleteCategoryModal category={ category }/>
                                 </TableCell>
                             </TableRow>
                         ))

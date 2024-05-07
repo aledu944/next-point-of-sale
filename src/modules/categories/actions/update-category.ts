@@ -13,7 +13,7 @@ export const updateCategory = async (formData: FormData) => {
     const image = formData.get('image');
     const slug = createSlug(formData.get('name') as string);
         
-    if( image ){
+    if( image === undefined ) {
         const imageUrl = await uploadImage(image as File);
 
         const category = {

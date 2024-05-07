@@ -15,7 +15,7 @@ export const EditCategoryModal = ({ category }: Props) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,8 @@ export const EditCategoryModal = ({ category }: Props) => {
         formData.append('name', categoryName.value);
         formData.append('image', image.files[0]);
         await updateCategory(formData);
-
+        
+        onClose()
         setIsLoading(false);
 
 
@@ -68,7 +69,10 @@ export const EditCategoryModal = ({ category }: Props) => {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Cancelar
                                 </Button>
-                                <Button color="primary" type="submit">
+                                <Button 
+                                    isLoading={ isLoading }
+                                    isDisabled={ isLoading }
+                                    color="primary" type="submit">
                                     Actualizar
                                 </Button>
                             </ModalFooter>
