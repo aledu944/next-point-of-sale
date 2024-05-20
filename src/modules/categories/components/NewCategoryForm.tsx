@@ -1,24 +1,28 @@
 "use client"
+import { FormEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { FormEvent } from 'react'
 import { Input, Button } from '@nextui-org/react';
 import { createCategory } from '@/modules/categories';
-import { useRouter } from 'next/navigation';
 
 export const NewCategoryForm = () => {
 
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e: FormEvent ) => {
         e.preventDefault();
+        setIsLoading(true);
 
         const { categoryName, image } = e.target as HTMLFormElement;
 
         const formData = new FormData();
         formData.append('name', categoryName.value);
         formData.append('image', image.files[0]);
-
+        
         await createCategory(formData);
+        
+        setIsLoading(false);
         router.push('/admin/categories');
 
     }
@@ -37,8 +41,14 @@ export const NewCategoryForm = () => {
                     />
                     <input type="file" name="image" />
 
-                    <Button type='submit' color='primary'>Guardar categoria</Button>
-
+                    <Button 
+                        isLoading={ isLoading }
+                        isDisabled={ isLoading }
+                        type='submit' 
+                        color='primary'
+                    >
+                        Guardar categoria
+                    </Button>
 
                 </form>
             </div>

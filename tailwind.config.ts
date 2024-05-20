@@ -16,11 +16,16 @@ const config: Config = {
       defaultTheme: 'light',
       themes: {
         light: {
+          layout: {
+            boxShadow: {
+              small: '0px 8px 25px rgba(0,0,0,0.02)'
+            }
+          },
           colors: {
             background: '#f8f8f8',
             focus: '#FFA16C',
             primary: {
-              DEFAULT: '#FFA16C',
+              DEFAULT: '#fe7439',
               foreground: "#fff",
 
             }

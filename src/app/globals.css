@@ -8,6 +8,10 @@
         @apply flex h-screen
     }
 
+    .admin__layout--main {
+        @apply h-screen overflow-hidden overflow-y-scroll w-full
+    }
+
     .sidemenu {
         @apply absolute z-10 -left-[100%] md:relative md:left-0 h-screen bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
     }

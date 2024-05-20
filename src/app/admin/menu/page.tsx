@@ -1,13 +1,21 @@
 import { HeaderPage } from "@/modules/shared";
+import { ProductTable, getAllProducts } from "@/modules/products";
 
-export default function() {
+export default async function() {
+
+    const products = await getAllProducts();
+
     return (
         <>
             <HeaderPage
                 btnTitle='Agregar producto'
-                description='Listado de tu menu actual con tus productos'
-                title='Menu virtual'
+                description='Listado y gestion de tus productos'
+                title='Productos'
                 path='/admin/menu/new'
+            />
+
+            <ProductTable
+                products={ products }
             />
         </>
     );

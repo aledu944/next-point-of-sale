@@ -3,6 +3,8 @@ export { CategoryTable } from "./components/category-table/CategoryTable";
 export { NewCategoryForm } from "./components/NewCategoryForm";
 export { EditCategoryModal } from './components/category-table/EditCategoryModal';
 export { DeleteCategoryModal } from './components/category-table/DeleteCategoryModal';
+export { CategorySelector } from "./components/CategorySelector";
+
 
 // ACTIONS
 export { getAllCategories } from './actions/get-all-categories';

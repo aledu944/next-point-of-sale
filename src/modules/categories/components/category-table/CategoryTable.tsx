@@ -28,22 +28,25 @@ export const CategoryTable = ({ categories }: Props) => {
 
                             <TableRow key={category.id}>
                                 <TableCell>
-                                    <Image
-                                        src={ category.image }
-                                        width={ 50 }
-                                        height={ 50 }
-                                        priority={ false }
-                                        alt={ category.name}
-                                    />
+                                    <div className='h-[60px] w-[60px] object-cover object-center rounded-full overflow-hidden'>
 
+                                        <Image
+                                            src={category.image}
+                                            width={100}
+                                            height={100}
+                                            priority={false}
+                                            alt={category.name}
+                                        />
+
+                                    </div>
                                 </TableCell>
-                                <TableCell>{ category.id }</TableCell>
-                                <TableCell>{ category.name }</TableCell>
-                                <TableCell>{ JSON.stringify(category.createdAt) }</TableCell>
+                                <TableCell>{category.id}</TableCell>
+                                <TableCell>{category.name}</TableCell>
+                                <TableCell>{JSON.stringify(category.createdAt)}</TableCell>
                                 <TableCell>
                                     {/* ACTIONS */}
-                                    <EditCategoryModal category={ category }/>
-                                    <DeleteCategoryModal category={ category }/>
+                                    <EditCategoryModal category={category} />
+                                    <DeleteCategoryModal category={category} />
                                 </TableCell>
                             </TableRow>
                         ))

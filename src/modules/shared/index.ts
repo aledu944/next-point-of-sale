@@ -1,3 +1,11 @@
+// COMPONENTS
+export { SideMenu } from "./components/side-menu/SideMenu";
+export { Navbar } from "./components/navbar/Navbar";
+export { HeaderPage } from "./components/HeaderPage";
+export { LoadingView } from "./components/LoadingView";
+export { ViewIcon } from "./components/icons/ViewIcon";
+
+
 // ICONS
 export { MenuIcon } from "./components/icons/MenuIcon";
 export { HomeIcon } from "./components/icons/HomeIcon";
@@ -10,10 +18,6 @@ export { CancelIcon } from "./components/icons/CancelIcon";
 export { PencilEditIcon } from "./components/icons/PencilEditIcon";
 export { DeleteIcon } from './components/icons/DeleteIcon';
 
-// COMPONENTS
-export { SideMenu } from "./components/side-menu/SideMenu";
-export { Navbar } from "./components/navbar/Navbar";
-export { HeaderPage } from "./components/HeaderPage";
 
 
 // STORES
