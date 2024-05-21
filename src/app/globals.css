@@ -33,7 +33,7 @@
     }
 
     .navbar__container {
-        @apply container flex items-center
+        @apply container flex items-center justify-between
     }
 
     .auth__layout {

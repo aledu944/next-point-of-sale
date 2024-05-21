@@ -1,3 +1,4 @@
+export type { IUser } from './interfaces/user';
 export { loginWithCredentials } from "./actions/login-with-credentials";
 
 export { loginWithEmailAndPassword } from "./actions/login-with-email-and-password";
