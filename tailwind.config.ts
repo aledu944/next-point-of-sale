@@ -18,7 +18,8 @@ const config: Config = {
         light: {
           layout: {
             boxShadow: {
-              small: '0px 8px 25px rgba(0,0,0,0.02)'
+              small: '0px 8px 25px rgba(0,0,0,0.02)',
+              medium:'0px 8px 25px rgba(0,0,0,0.08)'
             }
           },
           colors: {
