@@ -1,21 +1,26 @@
 "use client"
 import { useState } from 'react';
 
+import { signIn } from '@/auth';
+
 import { Input, Button } from '@nextui-org/react';
+import { loginWithCredentials } from '../actions/login-with-credentials';
+
 
 export const LoginForm = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
+        
         e.preventDefault();
 
         setIsLoading(true);
 
+        const {email, password} = e.target as HTMLFormElement;
 
 
-
-
+        await loginWithCredentials(email.value, password.value);
 
 
         setIsLoading(false);
