@@ -3,7 +3,7 @@
 import { prisma } from "@/lib";
 import bcrypt from 'bcryptjs';
 
-export const loginWithEmailAndPassword = async (email: string, password: string) => {
+export const validateUserCredentials = async (email: string, password: string) => {
 
     if( !email|| !password ) return null;
 

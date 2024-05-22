@@ -13,7 +13,7 @@
     }
 
     .sidemenu {
-        @apply absolute z-10 -left-[100%] md:relative md:left-0 h-screen bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
+        @apply absolute z-10 -left-[100%] md:relative md:left-0 h-screen flex flex-col pb-8 bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
     }
 
     .sidemenu-show {

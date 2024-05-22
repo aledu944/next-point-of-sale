@@ -1,13 +1,14 @@
 "use client"
-import { useUiStore } from '@/modules/shared';
 
+
+import { useUiStore } from '@/modules/shared';
 import { SideMenuList } from './SideMenuList';
 import { CloseMenuButton } from './CloseMenuButton';
+import { CloseSessionButton } from './CloseSessionButton';
 
 export const SideMenu = () => {
-    
+
     const { isMenuOpen } = useUiStore()
-    console.log(isMenuOpen)
 
     return (
         <nav className={isMenuOpen ? 'sidemenu sidemenu-show' : 'sidemenu'}>
@@ -15,11 +16,12 @@ export const SideMenu = () => {
                 <h3 className='font-bold text-2xl'>Next <span className='text-primary'>POS</span></h3>
             </div>
 
-            <SideMenuList/>
+            <SideMenuList />
 
 
-            <CloseMenuButton/>
+            <CloseMenuButton />
 
+            <CloseSessionButton/>
         </nav>
     )
 }

@@ -1,6 +1,6 @@
 "use server"
-
 import { signIn } from "@/auth"
+import { revalidatePath } from "next/cache"
 
 
 export const loginWithCredentials = async (email: string, password: string) => {
@@ -12,8 +12,23 @@ export const loginWithCredentials = async (email: string, password: string) => {
         }
     }
 
-    
-    await signIn("credentials", { email, password })
+    try {
+        await signIn("credentials", { email, password })
+
+        // revalidatePath('/')
+        return {
+            error: false,
+            message: "Bienvenido al sistema"
+        }
+
+    } catch (error) {
+        console.log(error)
+        
+        return {
+            error: true,
+            message: "Error al autenticarse"
+        }
+    }
 
 
 }

@@ -1,6 +1,8 @@
+export { closeSession } from './actions/close-session';
+
 export type { IUser } from './interfaces/user';
 export { loginWithCredentials } from "./actions/login-with-credentials";
 
-export { loginWithEmailAndPassword } from "./actions/login-with-email-and-password";
+export { validateUserCredentials } from "./actions/validate-user-credentials";
 
 export { LoginForm } from "./components/LoginForm";

@@ -4,11 +4,13 @@ import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
-    
+
     const session = await auth();
 
-    if( session?.user ) redirect('/admin/home');
-    
+    if (session?.user) {
+        redirect('/admin/home');
+    }
+
     return (
         <main className='auth__layout'>
             <section className='flex items-center justify-center w-full'>

@@ -1,7 +1,6 @@
 "use client"
 import { useState } from 'react';
-
-import { signIn } from '@/auth';
+import { toast } from 'sonner';
 
 import { Input, Button } from '@nextui-org/react';
 import { loginWithCredentials } from '../actions/login-with-credentials';
@@ -20,9 +19,15 @@ export const LoginForm = () => {
         const {email, password} = e.target as HTMLFormElement;
 
 
-        await loginWithCredentials(email.value, password.value);
+        const { error, message } = await loginWithCredentials(email.value, password.value);
 
+        if( error == true ){
+            toast.error(message);
+            setIsLoading(false);
+            return;
+        }
 
+        toast.error(message);
         setIsLoading(false);
     }
 
