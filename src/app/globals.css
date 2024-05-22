@@ -9,7 +9,7 @@
     }
 
     .admin__layout--main {
-        @apply h-screen overflow-hidden overflow-y-scroll w-full
+        @apply h-screen overflow-hidden overflow-y-scroll w-full pb-8
     }
 
     .sidemenu {
