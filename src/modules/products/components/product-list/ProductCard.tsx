@@ -1,13 +1,18 @@
-import React from 'react'
-import { Card, CardBody, Button } from '@nextui-org/react';
-import { IProduct } from '@/modules/products'
+"use client"
+
 import Image from 'next/image'
+
+import { IProduct } from '@/modules/products'
+import { useCartStore } from '@/modules/cart';
+import { Card, Button } from '@nextui-org/react';
 
 interface Props {
     product: IProduct
 }
 
 export const ProductCard = ({ product }: Props) => {
+
+    const { addProductToCart } = useCartStore();
 
     return (
         <Card isPressable shadow='sm' className='md:max-h-[275px] border-none rounded-[12px]' fullWidth>
@@ -37,7 +42,9 @@ export const ProductCard = ({ product }: Props) => {
                             <span className='font-bold text-black'>Precio:</span> {product.price}$
                         </p>
                     </div>
-                    <Button as={'div'} color='primary'>Agregar al carrito</Button>
+                    <Button
+                        onClick={() => addProductToCart(product)}
+                        as={'div'} color='primary'>Agregar al carrito</Button>
                 </div>
             </div>
         </Card>

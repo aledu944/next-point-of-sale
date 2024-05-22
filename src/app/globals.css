@@ -5,7 +5,7 @@
 
 @layer utilities {
     .admin__layout {
-        @apply flex h-screen
+        @apply flex h-screen overflow-hidden relative
     }
 
     .admin__layout--main {
@@ -13,7 +13,7 @@
     }
 
     .sidemenu {
-        @apply absolute z-10 -left-[100%] md:relative md:left-0 h-screen flex flex-col pb-8 bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
+        @apply absolute z-30 -left-[100%] md:relative md:left-0 h-screen flex flex-col pb-8 bg-white px-8 max-w-[340px] w-full border-r border-gray-300 transition-all
     }
 
     .sidemenu-show {
@@ -26,6 +26,14 @@
 
     .sidemenu__item--active {
         @apply justify-start text-base gap-4 font-bold text-primary transition-all hover:text-primary
+    }
+
+    .side__cart{
+        @apply py-8 px-8 absolute -right-[100%] z-20 h-screen bg-white flex flex-col border-l border-gray-300 max-w-[380px] w-full  transition-all
+    }
+
+    .side__cart--show {
+        @apply right-0
     }
 
     .navbar {
