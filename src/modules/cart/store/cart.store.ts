@@ -1,11 +1,10 @@
-import { IProduct } from '@/modules/products';
-import { toast } from 'sonner';
 import { StateCreator, create } from 'zustand';
 
-interface ICart {
-    product: IProduct;
-    quantity: number;
-}
+import { toast } from 'sonner';
+
+import { ICart } from '../interfaces/cart';
+import { IProduct } from '@/modules/products';
+
 
 interface CartState {
     cart: ICart[];

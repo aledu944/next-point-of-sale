@@ -9,7 +9,6 @@ export const CartList = () => {
     const cart = useCartStore(state => state.cart);
     const { incrementQuantity, decrementQuantity } = useCartStore();
 
-
     return (
         <ul className='flex flex-col gap-6 w-full h-full max-h-min overflow-y-auto'>
             {

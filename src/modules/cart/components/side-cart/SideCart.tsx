@@ -1,15 +1,41 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Button } from '@nextui-org/react'
 
 import { CartList } from './CartList';
 import { CancelIcon } from '@/modules/shared';
 import { useCartStore } from '@/modules/cart';
+import { toast } from 'sonner';
+import { createOrder } from '@/modules/orders';
 
 export const SideCart = () => {
 
-    const { handleCartOpen, isCartOpen, total } = useCartStore();
+    const [isLoading, setIsLoading] = useState(false);
+    const { handleCartOpen, isCartOpen, total, cart, cleanCart } = useCartStore();
+
+    const handleNewOrder = async () => {
+        setIsLoading(true);
+
+        if (cart.length === 0) {
+            toast.warning('No hay elementos en el carrito')
+            return;
+        }
+
+        const { error, message } = await createOrder(cart, total);
+
+        if (error) {
+            toast.error(message);
+            return;
+        }
+
+        toast.success(message);
+
+        cleanCart();
+
+        setIsLoading(false);
+    }
+
 
     return (
         <div className={isCartOpen ? 'side__cart side__cart--show' : 'side__cart'}>
@@ -39,6 +65,9 @@ export const SideCart = () => {
             <Button
                 fullWidth
                 color='primary'
+                onClick={handleNewOrder}
+                isLoading={isLoading}
+                isDisabled={isLoading}
             >
                 Generar orden
             </Button>

@@ -1,3 +1,4 @@
+export type { ICart } from './interfaces/cart';
 export { CartList } from "./components/side-cart/CartList";
 
 export { useCartStore } from "./store/cart.store";
