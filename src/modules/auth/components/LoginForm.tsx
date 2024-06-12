@@ -1,5 +1,6 @@
 "use client"
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 import { toast } from 'sonner';
 
 import { Input, Button } from '@nextui-org/react';
@@ -9,6 +10,8 @@ import { loginWithCredentials } from '../actions/login-with-credentials';
 export const LoginForm = () => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
+    
 
     const handleSubmit = async (e: React.FormEvent) => {
         
@@ -27,7 +30,8 @@ export const LoginForm = () => {
             return;
         }
 
-        toast.error(message);
+        toast.success(message);
+        router.push('/admin/home')
         setIsLoading(false);
     }
 

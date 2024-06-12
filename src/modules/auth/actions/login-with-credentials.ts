@@ -1,6 +1,7 @@
 "use server"
 import { signIn } from "@/auth"
 import { revalidatePath } from "next/cache"
+import { RedirectType, redirect } from "next/navigation"
 
 
 export const loginWithCredentials = async (email: string, password: string) => {
@@ -13,9 +14,16 @@ export const loginWithCredentials = async (email: string, password: string) => {
     }
 
     try {
-        await signIn("credentials", { email, password })
+        await signIn("credentials", { 
+            email, 
+            password, 
+            redirect: false,  
+            callbackUrl: '/admin/home',
+            redirectTo: "/admin/home",
+        })
 
-        // revalidatePath('/')
+        revalidatePath('/auth/login', "layout");
+
         return {
             error: false,
             message: "Bienvenido al sistema"
